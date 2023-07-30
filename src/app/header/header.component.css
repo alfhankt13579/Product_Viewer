@@ -1,0 +1,12 @@
+header nav {
+    height: 10vh;
+}
+
+header nav div a {
+    font-size: 3.5rem;
+    padding-left: 3rem;
+}
+
+header nav div a i {
+    padding-right: 1rem;
+}

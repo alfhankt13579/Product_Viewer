@@ -1,0 +1,63 @@
+<div id="main">
+  <div class="container-fluid mainsub1">
+    <img
+      class="img-fluid"
+      src="https://img.freepik.com/free-photo/black-friday-elements-assortment_23-2149074076.jpg?w=900&t=st=1690101937~exp=1690102537~hmac=fd13b1d5b7e1d725e2ae932bb301d891be200c3c362306593b6f1b81aeb90572"
+      alt=""
+      srcset=""
+    />
+
+    <h2>Now shopping made easier than ever</h2>
+  </div>
+
+  <h2>Products</h2>
+
+  <div class="container-fluid mainsub2">
+
+    <div class="container d-flex search">
+      <input
+        (keyup)="search($event)"
+        class="form-control"
+        type="text"
+        placeholder="Search Products"
+      />
+    </div>
+
+    <div
+      *ngFor="let product of products | filter : searchKey : 'title'"
+      class="card part1"
+    >
+      <img [src]="product.thumbnail" class="card-img-top" alt="" />
+
+      <div class="card-body content">
+        <h5 class="card-title head1">
+          {{ product.title }}
+        </h5>
+
+        <div class="price">
+          <p class="card-text price1">${{ product.price }}</p>
+          <p class="card-text price2">
+            $
+            {{
+              (
+                product.price -
+                (product.price * product.discountPercentage) / 100
+              ).toFixed(0)
+            }}
+          </p>
+        </div>
+
+        <h5 class="card-title head2">
+          Rating: {{ product.rating.toFixed(1) }} out of 5
+        </h5>
+
+        <a
+          routerLink="/Main Viewer/Product Viewer/{{ product.id }}"
+          class="btn btn-primary"
+        >
+          Buy now
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

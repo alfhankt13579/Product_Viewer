@@ -1,0 +1,15 @@
+div#main {
+  min-height: 70vh;
+  height: max-content;
+}
+
+div#main div.pagenotfound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+div#main div.pagenotfound img {
+  width: 75rem;
+}

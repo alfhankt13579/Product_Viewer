@@ -1,0 +1,79 @@
+<div class="mainpre">
+  <button class="btn" routerLink="/">
+    <i class="fa-solid fa-arrow-left" style="color: #000000"></i>
+  </button>
+  <h2>Product</h2>
+</div>
+
+<div id="main">
+  <div
+    id="carouselExampleAutoplaying"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ product.thumbnail }}" class="d-block w-100" alt="..." />
+      </div>
+      <div *ngFor="let img of product.images" class="carousel-item">
+        <img src="{{ img }}" class="d-block w-100" alt="..." />
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container-fluid mainsub1">
+    <div class="card content">
+      <h5 class="card-title">
+        {{ product.title }}
+      </h5>
+
+      <p>
+        Brand:
+        {{ product.brand }}
+      </p>
+
+      <p>
+        Discounted price: ${{
+          (
+            product.price -
+            (product.price * product.discountPercentage) / 100
+          ).toFixed(0)
+        }}
+      </p>
+
+      <p>
+        Stocks left:
+        {{ product.stock }}Nos.
+      </p>
+
+      <p>
+        Rating:
+        {{ product.rating }}
+        out of 5
+      </p>
+
+      <p>
+        Description:
+        {{ product.description }}
+      </p>
+    </div>
+  </div>
+</div>
